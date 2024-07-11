@@ -8,12 +8,10 @@ const initialState = {
     error: null,
 }
 
-export const uploadFile = createAsyncThunk('uploadFile', async (file, thunkAPI) => {
+export const uploadFile = createAsyncThunk('uploadFile', async ({ base64file }, thunkAPI) => {
     try {
-        console.log(JSON.stringify(file));
-        //const response = await axiosInstance.post(`/`);
-        //return response.data;
-        return thunkAPI.abort("nothing to do with that");
+        const response = await axiosInstance.post(`/`, { file: base64file });
+        return response.data;
     } catch (err) {
         return thunkAPI.rejectWithValue({ error: err.message });
     }
@@ -33,7 +31,7 @@ const mainSlice = createSlice({
         });
         builder.addCase(uploadFile.rejected, (state, action) => {
             state.status = 'failed';
-            //state.error = action.error.message;
+            state.error = action.error.message;
         });
     },
 });

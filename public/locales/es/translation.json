@@ -1,6 +1,6 @@
 {
     "allRightsReserved": "Todos los derechos reservados.",
     "clickToUpload": "Click para cargar",
-    "orDragAndDrop": "o toma y suelta",
-    "xlsOrXlsx": "XLS ó XLSX"
+    "xlsOrXlsx": "XLS ó XLSX",
+    "errorTypeMessage": "Solo archivos de tipo XLS or XLSX son admitidos."
 }
